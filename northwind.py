@@ -12,7 +12,7 @@ curs = conn.cursor()
 
 query = """SELECT ProductName FROM Product ORDER BY UnitPrice DESC LIMIT 10;"""
 result = curs.execute(query)
-print('Ten most expensive items (per Unite Price):', result1.fetchall())
+print('Ten most expensive items (per Unite Price):', result.fetchall())
 
 #Result:Côte de Blaye
 #Thüringer Rostbratwurst
@@ -51,33 +51,28 @@ print('Hire Age of employee per city:', result3.fetchall())
 # We get the product name from product where we ordered the unit price in descending order and limiting it to 10
 # then we used that to get the company name from supplier column
 
-query4 = """SELECT ProductName, CompanyName
-            FROM Product, Supplier
-            WHERE ProductName FROM Product IN(
-                SELECT ProductName FROM Product
-                ORDER BY UnitPrice DESC
-                LIMIT 10)
-            ORDER BY UnitPrice DESC"""
+query4 = """SELECT ProductName, Supplier.CompanyName FROM Product
+            JOIN Supplier ON  Product.SupplierId = Supplier.ID ORDER BY UnitPrice DESC
+            LIMIT 10"""
 
 result4 = curs.execute(query4)
-print('Ten most expensive items (per unit price) in the database *and* their suppliers', result4)
+print('Ten most expensive items (per unit price) in the database *and* their suppliers:')
+for products in result4.fetchall():
+    print(products[0] + ', ' + products[1])
+
 
 # Apparently top 10 products are supplied by 290 suppliers. some supplier might show up twice
 # but the same product is supplied by many supplier
 
 #- What is the largest category (by number of unique products in it)?
-query5 = """"SELECT CategoryId FROM Product
-            JOIN Category ON Product.CategoryId = Category.Id
+query5 = """SELECT category.CategoryName
+            FROM Product JOIN Category ON product.CategoryId = Category.Id
             GROUP BY CategoryId
             ORDER BY Count(CategoryId) DESC LIMIT 1;"""
 
 result5 = curs.execute(query5)
 print('Largest category(by number of products in it)', result5.fetchall())
-
+for suppliers in result5.fetchall():
+    print(suppliers[0] + ', ' + suppliers[1])
 # Confections! no wonder the obesity rate is so high
-
-# Part - 4
-
-# In the Northwind database, what is the type of relationship between the
-#  `Employee` and `Territory` tables?
-# Territory table has a TerritoryId as key and EmployeeId as key which holds the value of territory of every Employee
+#not running in atom for some reason. Runs fine in DB.
