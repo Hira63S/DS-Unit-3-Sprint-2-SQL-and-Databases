@@ -1,0 +1,23 @@
+# Part - 4
+
+ In the Northwind database, what is the type of relationship between the `Employee` and `Territory` tables?
+ Territory table has a TerritoryId as key and EmployeeId as key which holds the value of territory of every Employee
+
+ In the Northwind database, what is the type of relationship between the
+  `Employee` and `Territory` tables?
+   Territory table has a TerritoryId as key and EmployeeId as key which holds the value of territory of every Employee
+
+ What is a situation where a document store (like MongoDB) is appropriate, and #  what is a situation where it is not appropriate?
+MongoDB is a NoSQl database where teh objects are stored as separate documents instead of in column
+and rows format as in SQL. It is especially useful when your schema is subject to frequent additions
+and changes during rapid development. Since it is used by having views compared to queries done by
+SQL, whenever the schema changes or a new document is added, the view doesn't have to be generated from scratch.
+Instead, It is updated whenever a new document is added to the document store. It is good for analytics, e-commerce products catalog, configuration,
+information relating to mobile and social networking websites, evolving data requirements, among many
+other use cases.
+
+ What is "NewSQL", and what is it trying to achieve?
+NewSQL is trying to solve the database problems like organizations having to deal with complex data
+from multiple sources. Currently organizations use Relational Database Management Systems which are unable
+to cope with huge amount of complex data. NewSQL provied the same scalable performance of NoSQL Systems while
+mainting the ACID provided by traditional database systems.
