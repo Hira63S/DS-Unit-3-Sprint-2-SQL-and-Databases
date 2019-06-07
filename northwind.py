@@ -14,16 +14,16 @@ query = """SELECT ProductName FROM Product ORDER BY UnitPrice DESC LIMIT 10;"""
 result = curs.execute(query)
 print('Ten most expensive items (per Unite Price):', result1.fetchall())
 
-'''Result:Côte de Blaye
-Thüringer Rostbratwurst
-Mishi Kobe Niku
-Sir Rodney's Marmalade
-Carnarvon Tigers
-Raclette Courdavault
-Manjimup Dried Apples
-Tarte au sucre
-Ipoh Coffee
-Rössle Sauerkraut '''
+#Result:Côte de Blaye
+#Thüringer Rostbratwurst
+#Mishi Kobe Niku
+#Sir Rodney's Marmalade
+#Carnarvon Tigers
+#Raclette Courdavault
+#Manjimup Dried Apples
+#Tarte au sucre
+##Ipoh Coffee
+#Rössle Sauerkraut '''
 
 # hiredate is in datetime format
 # we need to subtract the hire date from birthdate and get taht number in years.
