@@ -30,7 +30,7 @@ print('Ten most expensive items (per Unite Price):', result.fetchall())
 query2 = """SELECT Id, FirstName, LastName, AVG(HireDate - BirthDate) AS 'age at hiring'
             FROM Employee"""
 result2 = curs.execute(query2)
-print(result2)
+print(result2.fetchall())
 
 # this is only returning one result in DB browser, can't think of any other way to get average of subtraction...?
 # maybe avg function is causing a ruckus where it is only returning one value in DB browser.
@@ -70,9 +70,9 @@ query5 = """SELECT category.CategoryName
             GROUP BY CategoryId
             ORDER BY Count(CategoryId) DESC LIMIT 1;"""
 
-result5 = curs.execute(query5)
-print('Largest category(by number of products in it)', result5.fetchall())
-for suppliers in result5.fetchall():
-    print(suppliers[0] + ', ' + suppliers[1])
+#result5 = curs.execute(query5)
+#print('Largest category(by number of products in it)', result5.fetchall())
+#for suppliers in result5.fetchall():
+#    print(suppliers[0] + ', ' + suppliers[1])
 # Confections! no wonder the obesity rate is so high
 #not running in atom for some reason. Runs fine in DB.
